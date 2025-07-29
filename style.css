@@ -1,5 +1,5 @@
 :root {
-  --primary: #6d4c41;
+  --primary: #6d4c41;  
   --secondary: #a1887f;
   --background: #f4ece7;
   --card-glass: rgba(109, 76, 65, 0.08);
@@ -260,7 +260,7 @@ h2.section-title {
 }
 
 .hover-front::after {
-  content: "↗ Hover to view";
+  content: "\2197 Hover to view";
   font-size: 0.8rem;
   color: var(--primary);
   margin-top: 10px;
@@ -283,7 +283,6 @@ h2.section-title {
 .hover-card:hover .hover-back {
   transform: translateY(0);
 }
-
 
 /* Education Section */
 .edu-grid {
@@ -363,18 +362,15 @@ footer {
 }
 
 /* === Responsive Fixes === */
-
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;
     text-align: center;
   }
-
   .hero-text {
     flex: unset;
     margin-bottom: 2rem;
   }
-
   .hero-img {
     flex: unset;
   }
@@ -384,15 +380,12 @@ footer {
   .skills-columns {
     flex-direction: column;
   }
-
   .skills-group {
     flex: 1 1 100%;
   }
-
   .hover-grid {
     grid-template-columns: 1fr;
   }
-
   .nav-links {
     flex-direction: column;
     position: absolute;
@@ -404,11 +397,9 @@ footer {
     width: 180px;
     display: none;
   }
-
   .nav-links.show {
     display: flex;
   }
-
   .menu-toggle {
     display: block;
     font-size: 24px;
@@ -422,18 +413,14 @@ footer {
   .hero-img img {
     width: 160px;
   }
-
   h2.section-title {
     font-size: 1.5rem;
   }
-
   .pill {
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
   }
-
   form input, form textarea, form button {
     font-size: 0.9rem;
   }
 }
-
