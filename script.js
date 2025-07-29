@@ -1,17 +1,30 @@
-// Mobile nav toggle
-document.querySelector('.menu-toggle')?.addEventListener('click', () => {
-  document.querySelector('.nav-links')?.classList.toggle('show');
+// Toggle nav menu on mobile
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
 });
 
-// Scroll fade-in
-window.addEventListener('scroll', () => {
-  document.querySelectorAll('.fade-in').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
+// Fade-in animation on scroll
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+  threshold: 0.2,
+  rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add('visible');
+      appearOnScroll.unobserve(entry.target);
     }
   });
-});
+}, appearOptions);
 
-// Trigger initial animation on load
-window.dispatchEvent(new Event('scroll'));
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
